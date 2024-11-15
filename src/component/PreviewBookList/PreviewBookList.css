@@ -1,0 +1,13 @@
+.PreviewBookListWrapper{
+    padding: 20px 10px 10px 25px;
+    background-color: red;
+    height: 390px;
+}
+
+.PreviewBookListWrapper ul{
+    display: flex;
+}
+
+.PreviewBookListWrapper h1{
+    margin-left: 3rem;
+}

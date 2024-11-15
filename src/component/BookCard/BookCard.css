@@ -1,0 +1,29 @@
+.BookWrapper{
+    font-size: 14px;
+    border-radius: 10px;
+    width: 150px;
+    line-height: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #fff;
+    margin-right: 20px;
+}
+
+.BookCover{
+    height: 200px;
+    background-color:blueviolet;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.BookCardContainer{
+    padding: 3px 10px;
+    margin-top: 5px;
+}
+
+.BookWrapper b{
+    line-height: 90%;
+}
+
+.BookWrapper p{
+    line-height: 50%;
+}

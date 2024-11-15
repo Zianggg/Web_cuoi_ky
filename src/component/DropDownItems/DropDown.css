@@ -1,0 +1,18 @@
+.dropDownMenu{
+    list-style-type: none;
+    background-color: #ffff;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 8vh;
+    left: 72%;
+    border-radius: 20px;
+    width: 13rem;
+    border: 1px solid gray;
+    z-index: 11;
+}
+
+.menuItems{
+    padding-bottom: 20px;
+    color: black;
+    text-decoration: none;
+}
