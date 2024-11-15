@@ -19,7 +19,7 @@ function PreviewBookList({title,}) {
     <div className="PreviewBookListWrapper">
         <h1>title</h1>
         <ul>
-            {Book.filter(Book => Book.id < 10).slice(0,8).map(Book =>
+            {Book.slice(0,8).map(Book =>
                 <BookCard key = {Book.id} title={Book.title} author={Book.author}></BookCard>
             )}
         </ul>
