@@ -1,0 +1,32 @@
+.BookPageWrapper{
+    min-height: 500px;
+    padding: 6vh;
+    margin: 7rem;
+    display: flex;
+    gap: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+
+.BookPageCover{
+    background-color: black;
+    height: 300px;
+    width: 250px;
+}
+
+.BookPageWrapper h3{
+    font-size: 24px;
+}
+
+p .description{
+    min-height: 200px;
+}
+
+.BookPageButton{
+    background-color: #4867c3;
+    border: none;
+    font-size: 25px;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+}
