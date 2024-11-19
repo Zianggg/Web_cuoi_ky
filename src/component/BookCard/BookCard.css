@@ -4,33 +4,44 @@
     width: 150px;
     line-height: 90%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: #fff;
-    margin-right: 20px;
+    background-color: #ffffff;
     visibility: hidden;
+    cursor: pointer;
 }
 
 .BookWrapper:hover{
-    visibility: visible;
+    visibility: visible;    
+    transform: scale(1.1) translateY(-10px);
+    transition: transform 0.3s ease;
 }
+
 
 .BookCover{
     height: 200px;
     background-color:blueviolet;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     visibility: visible;
 }
 
 .BookCardContainer{
-    padding: 3px 10px;
-    margin-top: 5px;
+    position: absolute;
+    background-color: #ffffffe3;
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    bottom: 0%;
+    height: 30%;
+    transition: transform 0.5s ease;
 }
 
 
 .BookWrapper b{
     line-height: 90%;
+    padding-left: 10px;
 }
 
 .BookWrapper p{
     line-height: 50%;
+    padding-left: 10px;
 }

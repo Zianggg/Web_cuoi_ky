@@ -5,12 +5,13 @@ import Footer from "./component/Footer/Footer";
 import PreviewBookList from "./component/PreviewBookList/PreviewBookList";
 import BookPage from "./page/BookPage/BookPage";
 import BorrowBookTicket from "./page/BookBorrowTicket/BookBorrowTicket";
+import BookDisplay from "./page/BookDisplay/BookDisplay";
 
 function App() {
   return (
     <>
 
-    <BorrowBookTicket></BorrowBookTicket>
+    <BookDisplay></BookDisplay>
     <Footer></Footer>
     </>
   );
