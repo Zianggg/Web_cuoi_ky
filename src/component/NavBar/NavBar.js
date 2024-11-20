@@ -24,6 +24,7 @@ function NavBar() {
             </button>
         </nav>
         {openMenu && <DropDownMenu></DropDownMenu>}
+        <div style={{height:"80px"}}></div>
         </>
      );
 }

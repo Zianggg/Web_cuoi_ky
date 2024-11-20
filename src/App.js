@@ -10,7 +10,7 @@ import BookDisplay from "./page/BookDisplay/BookDisplay";
 function App() {
   return (
     <>
-
+    <NavBar></NavBar>
     <BookDisplay></BookDisplay>
     <Footer></Footer>
     </>

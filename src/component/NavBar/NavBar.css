@@ -23,5 +23,8 @@
     border-radius: 10px;
     border-color: #ffffff;
     border: 3px solid #fff;
-    
+}
+
+.menuButton:hover{
+    cursor: pointer;
 }
