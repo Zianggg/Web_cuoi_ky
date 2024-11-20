@@ -1,0 +1,18 @@
+.CategoryCardWrapper{
+    height: 70px;
+    background-color: #fff;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 0px 30px;
+    margin: 0;
+    border: 1px solid grey;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.CategoryCardWrapper b{
+    padding: 0;
+}
