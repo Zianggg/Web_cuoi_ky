@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Link, BrowserRouter } from 'react-router-dom'
 import './NavBar.css'
 import SearchBar from "../SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +24,7 @@ function NavBar() {
             </button>
         </nav>
         {openMenu && <DropDownMenu></DropDownMenu>}
-        <div style={{height:"80px"}}></div>
+        <div style={{height:"100px"}}></div>
         </>
      );
 }
