@@ -1,0 +1,125 @@
+/* General styles for layout */
+.profile-settings {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-info .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-info .user-id {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+}
+
+.menu li.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.menu li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Borrow history section */
+.borrow-history {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.borrow-history h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.empty-history {
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+
+.borrow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.borrow-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #ddd;
+}
+
+.borrow-details {
+    flex-grow: 1;
+}
+
+.borrow-details .book-title {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.borrow-details p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9em;
+}

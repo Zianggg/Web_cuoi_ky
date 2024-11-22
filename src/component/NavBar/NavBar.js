@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, NavLink, Link, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Link } from 'react-router-dom'
 import './NavBar.css'
 import SearchBar from "../SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,16 +15,16 @@ function NavBar() {
     return ( 
         <>
         <nav className="navbar">
-            <Link to="/" className="navBarLogo">
+            <div className="navBarLogo">
                 Logo
-            </Link>
+            </div>
             <SearchBar></SearchBar>
             <button className="menuButton" onClick={() => setOpenMenu(!openMenu)}>
                 <FontAwesomeIcon icon={faBars} />
             </button>
         </nav>
         {openMenu && <DropDownMenu></DropDownMenu>}
-        <div style={{height:"100px"}}></div>
+        <div style={{height:"80px"}}></div>
         </>
      );
 }

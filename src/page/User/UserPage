@@ -1,0 +1,72 @@
+import React, { useState, useEffect } from "react";
+import "./UserPage.css";
+import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+
+const UserPage = () => {
+    const [borrowHistory, setBorrowHistory] = useState([]);
+
+    useEffect(() => {
+        const mockData = [
+            {
+                id: 1,
+                bookTitle: "Đắc Nhân Tâm",
+                borrowDate: "01/01/2023",
+                returnDate: "15/01/2023",
+                bookCover: "https://via.placeholder.com/50", // URL ảnh bìa sách
+            },
+        ];
+        setBorrowHistory(mockData);
+    }, []); // Empty dependency array ensures this runs only once on mount
+
+    return (
+        <>
+            <NavBar />
+            <div className="profile-settings">
+                {/* Sidebar */}
+                <div className="sidebar">
+                    <div className="user-info">
+                        <div className="avatar"></div>
+                        <p>Tên người dùng</p>
+                        <p className="user-id">ID bạn đọc</p>
+                    </div>
+                    <ul className="menu">
+                        <li>Sửa hồ sơ</li>
+                        <li className="active">Lịch sử mượn sách</li>
+                        <li>Đổi mật khẩu</li>
+                        <li>Report mất sách</li>
+                    </ul>
+                </div>
+
+                {/* Borrow History */}
+                <div className="borrow-history">
+                    <h1>Lịch sử mượn sách</h1>
+                    <hr />
+                    <div className="borrow-list">
+                        {borrowHistory.length === 0 ? (
+                            <p className="empty-history">Không có lịch sử mượn sách nào.</p>
+                        ) : (
+                            borrowHistory.map((borrow) => (
+                                <div key={borrow.id} className="borrow-item">
+                                    <img
+                                        src={borrow.bookCover}
+                                        alt={`Bìa sách: ${borrow.bookTitle}`}
+                                        className="book-cover"
+                                    />
+                                    <div className="borrow-details">
+                                        <h3 className="book-title">{borrow.bookTitle}</h3>
+                                        <p>Ngày mượn: {borrow.borrowDate}</p>
+                                        <p>Ngày trả: {borrow.returnDate}</p>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        </>
+    );
+};
+
+export default UserPage;
