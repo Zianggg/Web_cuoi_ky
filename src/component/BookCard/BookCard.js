@@ -3,15 +3,16 @@ import "./BookCard.css"
 
 
 
-function BookCard({id, title, author,}){
+function BookCard({id, file, title, author, onClick}){
     const [isHover, setIsHover] = useState(false)
 
     return (
         <>
         <div key={id} className="BookWrapper" 
         onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}>
-            <div className="BookCover"></div>
+        onMouseLeave={() => setIsHover(false)}
+        onClick={onClick}>
+            <div className="BookCover"><img src={file}/></div>
                 {isHover && (<>
                     <div className="BookCardContainer">
                         <b>{title}</b>
