@@ -1,20 +1,26 @@
-import NavBar from "./component/NavBar/NavBar";
 import {BrowserRouter as Router, Route, BrowserRouter, Routes} from 'react-router-dom'
 import "./App.css"
-import Footer from "./component/Footer/Footer";
-import CategoryList from "./component/CategoryList/CategoryList";
-import LandingPage from "./component/LandingPage/LandingPage";
-import BookCard from "./component/BookCard/BookCard"
-import AdminPage from "./page/AdminPage/AdminPage";
-import UserPage from "./page/User/UserPage";
-import EditProfilePage from "./page/User/EditProfilePage/EditProfilePage";
-import BookPage from "./page/BookPage/BookPage";
-import BorrowBookTicket from "./page/BookBorrowTicket/BookBorrowTicket";
+import UserDashboard from './page/User/UserDashBoard/UserDashBoard';
+import EditProfile from './page/User/EditProfile';
+import BorrowHistory from './page/User/BorrowHistory';
+import ChangePassword from './page/User/ChangePassword';
+import ReportLostBook from './page/User/ReportLostBook';
+
+
 
 function App() {
   return (
     <>
-      <BorrowBookTicket></BorrowBookTicket>
+      <Router>
+      <Routes>
+        <Route path="/" element={<UserDashboard />}>
+          <Route path="profile-edit" element={<EditProfile />} />
+          <Route path="borrow-history" element={<BorrowHistory />} />
+          <Route path="change-password" element={<ChangePassword />} />
+          <Route path="report-lost-book" element={<ReportLostBook />} />
+        </Route>
+      </Routes>
+    </Router>
     </>
   );
 }

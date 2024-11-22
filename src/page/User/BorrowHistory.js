@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./UserPage.css";
-import NavBar from "../../components/NavBar/NavBar";
-import Footer from "../../components/Footer/Footer";
 
-const UserPage = () => {
+const BorrowHistory = () => {
     const [borrowHistory, setBorrowHistory] = useState([]);
 
     useEffect(() => {
@@ -17,31 +14,13 @@ const UserPage = () => {
             },
         ];
         setBorrowHistory(mockData);
-    }, []); // Empty dependency array ensures this runs only once on mount
-
+    }, []);
     return (
+        
         <>
-            <NavBar />
-            <div className="profile-settings">
-                {/* Sidebar */}
-                <div className="sidebar">
-                    <div className="user-info">
-                        <div className="avatar"></div>
-                        <p>Tên người dùng</p>
-                        <p className="user-id">ID bạn đọc</p>
-                    </div>
-                    <ul className="menu">
-                        <li>Sửa hồ sơ</li>
-                        <li className="active">Lịch sử mượn sách</li>
-                        <li>Đổi mật khẩu</li>
-                        <li>Report mất sách</li>
-                    </ul>
-                </div>
-
                 {/* Borrow History */}
                 <div className="borrow-history">
                     <h1>Lịch sử mượn sách</h1>
-                    <hr />
                     <div className="borrow-list">
                         {borrowHistory.length === 0 ? (
                             <p className="empty-history">Không có lịch sử mượn sách nào.</p>
@@ -63,10 +42,8 @@ const UserPage = () => {
                         )}
                     </div>
                 </div>
-            </div>
-            <Footer />
         </>
     );
 };
 
-export default UserPage;
+export default BorrowHistory;
