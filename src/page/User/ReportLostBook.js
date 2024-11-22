@@ -47,8 +47,7 @@ const ReportLostBook = () => {
             </div> 
             <div class="form-group">
                 <label for="contact">Lý do mất sách:</label>
-                <input 
-                    style={{height:"auto", minHeight:"100px",}}
+                <textarea 
                     type="text" 
                     id="contact" 
                     name="contactInfo" 
