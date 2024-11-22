@@ -9,11 +9,12 @@ import AdminPage from "./page/AdminPage/AdminPage";
 import UserPage from "./page/User/UserPage";
 import EditProfilePage from "./page/User/EditProfilePage/EditProfilePage";
 import BookPage from "./page/BookPage/BookPage";
+import BorrowBookTicket from "./page/BookBorrowTicket/BookBorrowTicket";
 
 function App() {
   return (
     <>
-    
+      <BorrowBookTicket></BorrowBookTicket>
     </>
   );
 }
