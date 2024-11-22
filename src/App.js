@@ -7,13 +7,14 @@ import LandingPage from "./component/LandingPage/LandingPage";
 import BookCard from "./component/BookCard/BookCard"
 import AdminPage from "./page/AdminPage/AdminPage";
 import UserPage from "./page/User/UserPage";
+import EditProfilePage from "./page/User/EditProfilePage/EditProfilePage";
 
 
 
 function App() {
   return (
     <>
-    <NavBar></NavBar>
+      <CategoryList></CategoryList>
     </>
   );
 }

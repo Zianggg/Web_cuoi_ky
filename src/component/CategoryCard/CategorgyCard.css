@@ -1,7 +1,7 @@
 .CategoryCardWrapper{
-    height: 70px;
+    height: 80px;
     background-color: #fff;
-    width: 140px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +13,13 @@
     cursor: pointer;
 }
 
-.CategoryCardWrapper b{
+.CategoryCardWrapper p{
     padding: 0;
+    margin: 10px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
 }

@@ -6,7 +6,7 @@ function CategorgyCard({title}) {
     return ( 
         <>
         <div className="CategoryCardWrapper">
-                <b>{title}</b>
+                <p>{title}</p>
         </div>
         </>
      );

@@ -5,7 +5,7 @@ import CategorgyCard from "../CategoryCard/CategoryCard";
 
 const categories = Array.from({ length: 50 }, (_, index) => ({
     id: index + 1,
-    title: `Tên Sách ${index + 1}`,
+    title: `Tên Sách daiuwhndoawijdoanwdoodakodnwoandajwocnoanawndoawdno${index + 1}`,
     author: `Tên Tác Giả ${index + 1}`,
   }));
 
