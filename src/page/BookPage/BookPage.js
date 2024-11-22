@@ -73,7 +73,7 @@ function BookPage() {
             <NavBar />
             <div className="BookPageWrapper">
                 <div className="BookPageCover">
-                    <img src={book.file} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "cover" }}/>
+                    <img src={book.file} alt=""/>
                 </div>
                 <div>
                     <div>
@@ -94,7 +94,7 @@ function BookPage() {
             <hr style={{margin:"0 7rem 0 7rem"}}></hr>
             <div className="BookPageWrapperDescription">
                 <b>Mô tả</b>
-                <p>{description || "Không có thông tin"}</p>
+                <p>{book.description || "Không có thông tin"}</p>
             </div>
 
             <Footer />
