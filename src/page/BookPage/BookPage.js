@@ -11,7 +11,7 @@ function BookPage({id, title, description, authors,publisher, pubshedYear, file}
                     <div className="BookPageCover"><img src={file}/></div>
                     <div >
                         <div className="BookPageInformations">
-                            <h2>Tên sách: {title}</h2>
+                            <h1>Tên sách: {title}</h1>
                             <p>Tác giả: {authors}</p>
                             <p>Nhà xuất bản: {publisher || "Không có thông tin"}</p>
                             <p>Năm xuất bản: {pubshedYear || "Không có thông tin"}</p>
