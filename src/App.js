@@ -19,7 +19,16 @@ import NavBar from './component/NavBar/NavBar';
 function App() {
   return (
     <>
-      <NavBar/>
+      <Router>
+      <Routes>
+        <Route path="/" element={<AdminSidebar/>}>
+          <Route path="manage-books" element={<ManageBooks/>} />
+          <Route path="manage-borrow-and-returned-books" element={<ManageBorrowBooks/>} />
+          <Route path="manage-users" element={<ManageUsers />} />
+          <Route path="manage-category" element={<ManageCategory />} />
+        </Route>
+      </Routes>
+    </Router>
     </>
   );
 }
