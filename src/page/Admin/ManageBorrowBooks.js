@@ -41,7 +41,7 @@ const ManageBorrowBooks = () => {
                                     />
                                     <div className="borrow-details">
                                         <h3 className="book-title">{borrow.bookTitle}</h3>
-                                        <p>Ngày mươn: {borrow.borrowDate}</p>
+                                        <p>Ngày mượn: {borrow.borrowDate}</p>
                                         <p>Ngày trả dự kiến: {borrow.returnDate}</p>
                                         <p>Người mượn: {borrow.name} (id: {1})</p>
                                     </div>

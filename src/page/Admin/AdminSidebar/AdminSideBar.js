@@ -2,11 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, Outlet } from "react-router-dom";
 import { faBook, faUsers,faTags  ,faSync,faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import "./AdminSideBar.css";
+import Modal from "../../../component/Modal/Modal";
+import { useState } from "react";
 
 
 function AdminSidebar() {
+
     return ( 
         <>
+
+
         <div className="AdminWrapper">
             <div className="AdminSidebar">
                 <div className="AdminMenu">

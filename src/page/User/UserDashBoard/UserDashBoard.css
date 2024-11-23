@@ -119,6 +119,7 @@ body {
     object-fit: cover;
     border-radius: 5px;
     background-color: #ddd;
+    align-self: center;
 }
 
 .borrow-details {

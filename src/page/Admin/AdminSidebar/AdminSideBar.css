@@ -110,7 +110,11 @@
 }
 
 .borrow-details{
-    margin-top: 15px;
     align-items: center;
-    margin-left: 30px;
+}
+
+.borrow-details h2{
+    align-items: center;
+    margin: 0;
+    padding: 30px 10px;
 }

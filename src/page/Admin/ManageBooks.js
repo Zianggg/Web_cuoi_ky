@@ -1,32 +1,62 @@
-import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faL, faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import SearchBar from "../../component/SearchBar/SearchBar";
+import Modal from "../../component/Modal/Modal";
+import AddForm from "../../component/Form/AddForm";
+import EditForm from "../../component/Form/EditForm";
+
 
 function ManageBooks() {
     const [Books, setBooks] = useState([]);
-
+    const [visibleForm, setVisibleForm] = useState(false)
+    const [formType,setFormType] = useState("book")
+    const [bookData,setBookData] = useState([])
+    const [isEdit, setIsEdit] = useState(false)
+    const [updateBookData,setUpdateBookData] = useState([])
+    
     useEffect(() => {
         const mockData = [
             {
                 id: 1,
-                bookTitle: "Đắc Nhân Tâm",
-                inStock: 50,
+                title:"Đắc Nhân Tâm",
+                authors:"",
+                category:"",
+                thumbnail:"https://via.placeholder.com/50",
+                description:"",
+                published_year:"",
+                instock:50,
                 borrowing: 3,
-                bookCover: "https://via.placeholder.com/50", // URL ảnh bìa sách
             },
         ];
         setBooks(mockData);
     }, []);
 
+    const addBook = () =>{
+        const newBook = { id: Books.length + 1, ...bookData, borrowing:0 };
+        setBooks((prevBooks) => [...prevBooks, newBook]);
+        console.log("Books after add:", Books);
+    }
+
     return (<>
+    <Modal
+        onClose={() => setVisibleForm(false)}
+        isOpen={visibleForm}
+    >   {isEdit? <EditForm updateBookData={updateBookData} setUpdateBookData={setUpdateBookData} bookData={bookData} setBookData={setBookData} formType={formType} setVisibleForm={setVisibleForm}></EditForm>
+                    :<AddForm bookData={bookData} setBookData={setBookData} formType={formType} setVisibleForm={setVisibleForm} add={addBook}></AddForm>
+}
+        
+    </Modal>
     
     <div className="borrow-history">
         <div className="Borrow-history-header">
             <h1>Kho sách</h1>
             <div style={{display:"flex", alignItems:"center", gap:'10px'}}>
                 <SearchBar></SearchBar>
-                <button className="CreateButton"><FontAwesomeIcon icon={faPlus}/></button>
+                <button className="CreateButton"  onClick={()=> {setVisibleForm(true);
+                                                                setFormType("book")
+                                                                setIsEdit(false)
+                }}><FontAwesomeIcon icon={faPlus}/></button>
             </div>
         </div>
                     <div className="borrow-list">
@@ -36,17 +66,20 @@ function ManageBooks() {
                             Books.map((book) => (
                                 <div key={book.id} className="borrow-item">
                                     <img
-                                        src={book.bookCover}
+                                        src={book.thumbnail}
                                         alt={`Bìa sách: ${book.bookTitle}`}
                                         className="book-cover"
                                     />
                                     <div className="borrow-details">
-                                        <h3 className="book-title">{book.bookTitle}</h3>
-                                        <p>Trong kho: {book.inStock}</p>
+                                        <h3 className="book-title">{book.title}</h3>
+                                        <p>Trong kho: {book.instock}</p>
                                         <p>Đang được mượn: {book.borrowing}</p>
                                     </div>
                                     
-                                    <button className="UpdateButton"><FontAwesomeIcon icon={faPen}/></button>
+                                    <button className="UpdateButton" onClick={() => {setVisibleForm(true);
+                                                                                    setIsEdit(true)
+                                                                                    setFormType('book')
+                                    }}><FontAwesomeIcon icon={faPen}/></button>
                                     <button className="DeleteButton"><FontAwesomeIcon icon={faTrash}/></button>
                                 </div>
                             ))
