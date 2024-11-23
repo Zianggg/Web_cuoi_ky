@@ -38,7 +38,7 @@ function AddForm({bookData, setBookData, userData,setUserData ,formType, setVisi
     return (<>
     <form onSubmit={handleSubmit}>
         {formType === "book" && (
-            <div className="form-container">
+            <div className="admin-form-container">
                 <h3>Thêm sách</h3>
                 <label>
                 Title:
@@ -101,7 +101,7 @@ function AddForm({bookData, setBookData, userData,setUserData ,formType, setVisi
         )}
 
         {formType === "user" &&(
-            <div className="form-container">
+            <div className="admin-form-container">
                 <h3>Thêm bạn đọc</h3>
                 <label>
                 Username:
