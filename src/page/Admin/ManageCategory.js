@@ -36,7 +36,6 @@ function ManageCategory() {
                                         <h2>{category.categoryName}</h2>
                                     </div>
                                     <button className="UpdateButton"><FontAwesomeIcon icon={faPen}/></button>
-                                    <button className="DeleteButton"><FontAwesomeIcon icon={faTrash}/></button>
                                 </div>
                             ))
                         )}

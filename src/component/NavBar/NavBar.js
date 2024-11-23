@@ -15,9 +15,7 @@ function NavBar() {
     return ( 
         <>
         <nav className="navbar">
-            <div className="navBarLogo">
-                Logo
-            </div>
+                <img src='https://i.imgur.com/KnZDTAE.png' alt="https://i.imgur.com/KnZDTAE.png"></img> {/*thay img cho logo*/}
             <SearchBar></SearchBar>
             <button className="menuButton" onClick={() => setOpenMenu(!openMenu)}>
                 <FontAwesomeIcon icon={faBars} />
