@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "../../component/SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ManageBorrowBooks = () => {
   const [borrowBooks, setBorrowBooks] = useState([]);

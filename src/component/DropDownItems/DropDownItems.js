@@ -34,10 +34,11 @@ function DropDownMenu() {
                 {/* Nút Đăng Xuất hiển thị nếu người dùng đã đăng nhập */}
                     <>
                         <hr />
-                        <li className="menuItems">
+                        <li>
                             <button className="logoutButton" onClick={{}}>
                                 Đăng xuất
                             </button>
+                            {/*xóa className của li button đăng xuất*/}
                         </li>
                     </>
    

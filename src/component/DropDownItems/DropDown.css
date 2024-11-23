@@ -12,9 +12,14 @@
 }
 
 .menuItems{
-    padding-bottom: 10px;
+    padding: 10px 5px;
     color: black;
     text-decoration: none;
+    border-radius: 10px;
+}
+
+.menuItems:hover{
+    background-color: #d8d8d8;
 }
 
 .menuItems:first-child{
@@ -39,11 +44,21 @@
 }
 
 .logoutButton{
+    width: 100%;
     border: none;
     font-size: 24px;
     background-color: rgba(243, 20, 20, 0.886);
     color: #ffff;
     border-radius: 10px;
-    padding: 5px 10px;
-    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0px;;
+}
+
+.logoutButton:hover{
+    background-color: rgba(212, 0, 0, 0.886);
+}
+
+.logoutButton:active{
+    background-color: rgba(168, 0, 0, 0.886);;
 }
