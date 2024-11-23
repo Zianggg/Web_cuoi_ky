@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./Form.css"
 
 function AddForm({bookData, setBookData, userData,setUserData ,formType, setVisibleForm, add}) { 
 
@@ -38,6 +38,7 @@ function AddForm({bookData, setBookData, userData,setUserData ,formType, setVisi
     return (<>
     <form onSubmit={handleSubmit}>
         {formType === "book" && (
+            //thêm classname cho div//
             <div className="admin-form-container">
                 <h3>Thêm sách</h3>
                 <label>
@@ -135,7 +136,8 @@ function AddForm({bookData, setBookData, userData,setUserData ,formType, setVisi
                 </label>
             </div>
         )}
-    <button type="submit">Add</button>
+    <button className="admin-button-form" type="submit">Add</button> 
+    {/* thêm classname cho button */}
     </form>
     </> );
 }

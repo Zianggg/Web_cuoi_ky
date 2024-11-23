@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./Form.css"
 
 
 function EditForm({formType,setVisibleForm,bookData,setBookData}) {
@@ -54,7 +54,7 @@ function EditForm({formType,setVisibleForm,bookData,setBookData}) {
     return ( <>
        <form onSubmit={handleSubmit}>
        {formType === "book" && (
-            <div>
+            <div className="admin-form-container"> {/*thêm classname cho div*/}
                 <h3>Sửa sách</h3>
                 <label>
                 Title:
@@ -117,7 +117,7 @@ function EditForm({formType,setVisibleForm,bookData,setBookData}) {
         )}
 
         {formType === "user" &&(
-            <div>
+            <div className="admin-form-container"> {/*thêm classname cho div*/}
               <h3>Sửa thông tin bạn đọc</h3>
                 <label>
                 Username:
@@ -151,7 +151,7 @@ function EditForm({formType,setVisibleForm,bookData,setBookData}) {
                 </label>
             </div>
         )}
-    <button type="submit">Update</button>
+    <button type="submit">Update</button>{/*thêm classname cho button*/}
        </form>
        </>);
 }
