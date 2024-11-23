@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SearchBar from "../../component/SearchBar/SearchBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ManageBorrowBooks = () => {
   const [borrowBooks, setBorrowBooks] = useState([]);
@@ -14,18 +14,31 @@ const ManageBorrowBooks = () => {
               bookCover: "https://via.placeholder.com/50", // URL ảnh bìa sách
               borrowDate: "01/01/2023",
               returnDate: "15/01/2023",
-              name:"Tên bạn đọc"
+              name:"Tên bạn đọc",
+              status: "DANG_DUYET", //thêm status để test.
           },
       ];
       setBorrowBooks(mockData);
   }, []);
+
+  const acceptToBorrow = (id) => {
+    const updatedTicket = borrowBooks.map(item =>
+      item.id === id ? { ...item, status: "DANG_MUON" } : item
+    );
+    setBorrowBooks(updatedTicket);
+    console.log(updatedTicket)
+  };
+
+  {/*thêm function accept*/}
+
+
+
     return (<>
   <div className="borrow-history">
         <div className="Borrow-history-header">
-            <h1>Sách đang được mượn</h1>
-            <div style={{display:"flex", alignItems:"center", gap:'10px'}}>
+            <h1>Đơn mượn sách</h1> {/*sửa tiêu đề sách*/}
+            <div style={{display:"flex", alignItems:"center", gap:'10px'}}> {/*xóa nút tạo mới đơn*/}
                 <SearchBar></SearchBar>
-                <button className="CreateButton"><FontAwesomeIcon icon={faPlus}/></button>
             </div>
         </div>
                     <div className="borrow-list">
@@ -45,8 +58,8 @@ const ManageBorrowBooks = () => {
                                         <p>Ngày trả dự kiến: {borrow.returnDate}</p>
                                         <p>Người mượn: {borrow.name} (id: {1})</p>
                                     </div>
-                                    
-                                    <button className="UpdateButton"><FontAwesomeIcon icon={faPen}/></button>
+                                    {borrow.status==="DANG_MUON"? <p className="borrowStatus">Đang mượn</p> : <button className="AcceptButton" onClick={() =>acceptToBorrow(borrow.id)}>Duyệt mượn sách</button>}
+                                    {/*thêm nút duyệt mượn*/}
                                     <button className="DeleteButton"><FontAwesomeIcon icon={faTrash}/></button>
                                 </div>
                             ))

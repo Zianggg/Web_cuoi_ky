@@ -151,7 +151,7 @@ function EditForm({formType,setVisibleForm,bookData,setBookData}) {
                 </label>
             </div>
         )}
-    <button type="submit">Update</button>{/*thêm classname cho button*/}
+    <button type="submit" className="admin-button-form">Update</button>{/*thêm classname cho button*/}
        </form>
        </>);
 }

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../component/SearchBar/SearchBar";
 import Modal from "../../component/Modal/Modal";
 import AddForm from "../../component/Form/AddForm";
+import EditForm from "../../component/Form/EditForm";
+
 
 
 
@@ -12,6 +14,7 @@ function ManageUsers() {
     const [formType,setFormType] = useState("user")
     const [users, setUsers] = useState([]);
     const [userData,setUserData] = useState([])
+    const [isEdit, setIsEdit] = useState(false)
 
     useEffect(() => {
         const mockData = [
@@ -36,7 +39,7 @@ function ManageUsers() {
         onClose={() => setVisibleForm(false)}
         isOpen={visibleForm}
     >
-        <AddForm userData={userData} setUserData={setUserData} formType={formType} setVisibleForm={setVisibleForm} add={addUser}></AddForm>
+        {isEdit? <EditForm formType={formType} setVisibleForm={setVisibleForm}></EditForm>:<AddForm userData={userData} setUserData={setUserData} formType={formType} setVisibleForm={setVisibleForm} add={addUser}></AddForm>}
     </Modal>
 
      <div className="borrow-history">
@@ -45,7 +48,9 @@ function ManageUsers() {
             <div style={{display:"flex", alignItems:"center"}}>
                 <SearchBar></SearchBar>
                 <button className="CreateButton" onClick={() => (setVisibleForm(true),
-                                                                setFormType("user"))}
+                                                                setFormType("user"),
+                                                                setIsEdit(false)
+                                                            )}
             ><FontAwesomeIcon icon={faPlus}/></button>
             </div>
         </div>
@@ -65,7 +70,11 @@ function ManageUsers() {
                                         <p>Id bạn đọc: {Reader.id}</p>
                                     </div>
                                     
-                                    <button className="UpdateButton"><FontAwesomeIcon icon={faPen}/></button>
+                                    <button className="UpdateButton"    onClick={() => (setVisibleForm(true),
+                                                                                        setIsEdit(true),
+                                                                                        setFormType('user')
+                                                                                    )} /*thêm onclick mở form update*/
+                                                                        ><FontAwesomeIcon icon={faPen}/></button>
                                     <button className="DeleteButton"><FontAwesomeIcon icon={faTrash}/></button>
                                 </div>
                             ))
