@@ -20,7 +20,16 @@ import CategoryList from './component/CategoryList/CategoryList';
 function App() {
   return (
     <>
-    <BookPage></BookPage>
+        <Router>
+      <Routes>
+        <Route path="/" element={<AdminSidebar/>}>
+          <Route path="manage-books" element={<ManageBooks/>} />
+          <Route path="manage-borrow-and-returned-books" element={<ManageBorrowBooks/>} />
+          <Route path="manage-users" element={<ManageUsers />} />
+          <Route path="manage-category" element={<ManageCategory />} />
+        </Route>
+      </Routes>
+    </Router>
     </>
   );
 }

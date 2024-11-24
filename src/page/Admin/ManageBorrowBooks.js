@@ -5,6 +5,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ManageBorrowBooks = () => {
   const [borrowBooks, setBorrowBooks] = useState([]);
+  const [borrowStatusStyle, setBorrowStatusStyle] = useState('pending')
+    //state chuyển style
 
   useEffect(() => {
       const mockData = [
@@ -22,6 +24,7 @@ const ManageBorrowBooks = () => {
   }, []);
 
   console.log(borrowBooks)
+
 
   const acceptToBorrow = (id) => {
     const updatedTicket = borrowBooks.map(item =>
@@ -48,7 +51,7 @@ const ManageBorrowBooks = () => {
                             <p className="empty-history">Không có lịch sử mượn sách nào.</p>
                         ) : (
                             borrowBooks.map((borrow) => (
-                                <div key={borrow.id} className="borrow-item">
+                                <div key={borrow.id} className={borrowStatusStyle}> {/*đổi style thành state*/}
                                     <img
                                         src={borrow.bookCover}
                                         alt={`Bìa sách: ${borrow.bookTitle}`}
@@ -60,8 +63,10 @@ const ManageBorrowBooks = () => {
                                         <p>Ngày trả dự kiến: {borrow.returnDate}</p>
                                         <p>Người mượn: {borrow.name} (id: {1})</p>
                                     </div>
-                                    {borrow.status==="DANG_MUON"? <p className="borrowStatus">Đang mượn</p> : <button className="AcceptButton" onClick={() =>acceptToBorrow(borrow.id)}>Duyệt mượn sách</button>}
-                                    {/*thêm nút duyệt mượn*/}
+                                    {borrow.status==="DANG_MUON"? <p className="borrowStatus">Đang mượn</p> : <button className="AcceptButton" onClick={() =>{acceptToBorrow(borrow.id);
+                                                                                                                                                              setBorrowStatusStyle('borrowing')}
+                                                                                                                                                                                                       
+                                    }>Duyệt mượn sách</button>}
                                     <button className="DeleteButton"><FontAwesomeIcon icon={faTrash}/></button>
                                 </div>
                             ))

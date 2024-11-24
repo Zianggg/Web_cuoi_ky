@@ -247,3 +247,25 @@
 .CancelButton:active{
     background-color: rgb(146, 0, 0);;
 }
+
+.pending{
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: #ff3d3d;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+.borrowing{
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: #11ff00;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #000000;
+}
+
+/*chuyển các className thành state để chuyển giữa 2 className*/
