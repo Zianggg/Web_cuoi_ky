@@ -12,7 +12,7 @@ function AdminSidebar() {
         <div className="AdminWrapper">
             <div className="AdminSidebar">
                 <div className="AdminMenu">
-                <img src='https://i.imgur.com/YVydVYH.png' alt='https://i.imgur.com/YVydVYH.png'></img>
+                <img src='https://imgur.com/KnZDTAE' alt='https://imgur.com/KnZDTAE'></img>
                         <Link to={""} className="AdminLinks"><FontAwesomeIcon icon={faChartLine} /> DashBoard</Link>
                         <Link to={"manage-books"} className="AdminLinks"><FontAwesomeIcon icon={faBook}/> Kho sách</Link>
                         <Link to={"manage-borrow-and-returned-books"} className="AdminLinks"><FontAwesomeIcon icon={faSync} /> Sách đang mượn</Link>
