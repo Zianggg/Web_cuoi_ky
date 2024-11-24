@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import SearchBar from "../../component/SearchBar/SearchBar";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faPlus} from "@fortawesome/free-solid-svg-icons";
-import Modal from "../../component/Modal/Modal";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import SearchBar from "../../component/SearchBar/SearchBar";
 
 function ManageCategory() {
-    const [category, setCategory] = useState([]);
-    const [newCategory, setNewCategory] = useState("")
-    const [visibleForm, setVisibleForm] = useState(false)
-    const [newCategoryId, setNewCategoryId] = useState()
+    const [categories, setCategories] = useState([]);
+    const [error, setError] = useState(null);
+    const [editCategory, setEditCategory] = useState(null);
+    const [newCategoryName, setNewCategoryName] = useState("");
 
     useEffect(() => {
         const mockData = [
@@ -17,72 +18,91 @@ function ManageCategory() {
                 categoryName: "scifi",
             },
         ];
-        setCategory(mockData);
+        setCategories(mockData);
     }, []);
 
-    const changeCategoryName = (id) => {
-        const newCategoryName = category.map(item =>
-          item.id === id ? { ...item,  categoryName: newCategory} : item
-        );
-        setCategory(newCategoryName);
-        console.log(newCategoryName)
-      };
-    
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        changeCategoryName(newCategoryId);
-        setNewCategory('')
-        setVisibleForm(false)
-    }
-    
+    // Bắt đầu sửa danh mục
+    const handleEdit = (category) => {
+        setEditCategory(category);
+        setNewCategoryName(category.categoryName);
+    };
 
-    return (<>
-    <Modal  onClose={() => setVisibleForm(false)}
-            isOpen={visibleForm}
-    >   <h3>Sửa danh mục</h3>
-        <form onSubmit={handleSubmit}>
-            <div className="admin-form-container">
+    // Lưu thay đổi danh mục
+    const handleSave = async () => {
+        try {
+            await axios.put(`http://localhost:8080/api/categories/${editCategory.id}`, {
+                categoryName: newCategoryName,
+            });
+            setCategories(
+                categories.map((category) =>
+                    category.id === editCategory.id ? { ...category, categoryName: newCategoryName } : category
+                )
+            );
+            setEditCategory(null);
+            alert("Danh mục đã được cập nhật thành công.");
+        } catch (err) {
+            console.error("Lỗi khi cập nhật danh mục:", err);
+            alert("Không thể cập nhật danh mục. Vui lòng thử lại.");
+        }
+    };
 
-                <input
-                    required
-                    type="text" 
-                    value={newCategory}
-                    onChange={(e) => setNewCategory(e.target.value)}
-                ></input>
-                <button type="submit" className="admin-button-form">Cập nhật</button>
+    // Hủy sửa
+    const handleCancel = () => {
+        setEditCategory(null);
+        setNewCategoryName("");
+    };
+
+    return (
+        <div className="borrow-history">
+            <div className="Borrow-history-header">
+                <h1>Danh sách danh mục</h1>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <SearchBar items={categories}></SearchBar>
+                </div>
             </div>
-            
-        </form>
-    </Modal>
-    
-    <div className="borrow-history">
-        <div className="Borrow-history-header">
-            <h1>Danh sách danh mục</h1>
-            <div style={{display:"flex", alignItems:"center", gap:'10px'}}>
-                <SearchBar></SearchBar>
+            <div className="borrow-list">
+                {error ? (
+                    <p className="error-message">{error}</p>
+                ) : categories.length === 0 ? (
+                    <p className="empty-history">Không có danh mục.</p>
+                ) : (
+                    categories.map((category) => (
+                        <div key={category.id} className="borrow-item">
+                            {editCategory && editCategory.id === category.id ? (
+                                <div className="edit-form">
+                                    <input
+                                        type="text"
+                                        value={newCategoryName}
+                                        onChange={(e) => setNewCategoryName(e.target.value)}
+                                        className="edit-input"
+                                    />
+                                    <div className="edit-buttons">
+                                        <button className="AcceptButton" onClick={handleSave}>
+                                            Lưu
+                                        </button>
+                                        <button className="CancelButton" onClick={handleCancel}>
+                                            Hủy
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="borrow-details">
+                                        <h2>
+                                            {category.id}. {category.categoryName}
+                                        </h2>
+                                    </div>
+                                    <button className="UpdateButton" onClick={() => handleEdit(category)}>
+                                        <FontAwesomeIcon icon={faPen} />
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    ))
+                )}
             </div>
         </div>
-                    <div className="borrow-list">
-                        {category.length === 0 ? (
-                            <p className="empty-history">Không có danh mục.</p>
-                        ) : (
-                            category.map((category) => (
-                                <div key={category.id} className="borrow-item">
-                                    <div className="borrow-details">
-                                        <h2>{category.categoryName}</h2>
-                                    </div>
-                                    <button className="UpdateButton" onClick={()=> (setVisibleForm(true),
-                                                                                    setNewCategoryId(category.id),
-                                                                                    console.log(newCategoryId)
-                                )
-                                    }><FontAwesomeIcon icon={faPen} onClick={()=>setVisibleForm(true)}/></button>
-                                {/*thêm function cho button*/}
-                                </div>
-                            ))
-                        )}
-                    </div>
-                </div>
-    </> );
+    );
 }
 
 export default ManageCategory;

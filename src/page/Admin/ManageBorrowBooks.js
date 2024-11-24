@@ -21,6 +21,8 @@ const ManageBorrowBooks = () => {
       setBorrowBooks(mockData);
   }, []);
 
+  console.log(borrowBooks)
+
   const acceptToBorrow = (id) => {
     const updatedTicket = borrowBooks.map(item =>
       item.id === id ? { ...item, status: "DANG_MUON" } : item
@@ -38,7 +40,7 @@ const ManageBorrowBooks = () => {
         <div className="Borrow-history-header">
             <h1>Đơn mượn sách</h1> {/*sửa tiêu đề sách*/}
             <div style={{display:"flex", alignItems:"center", gap:'10px'}}> {/*xóa nút tạo mới đơn*/}
-                <SearchBar></SearchBar>
+                <SearchBar items={borrowBooks}></SearchBar>
             </div>
         </div>
                     <div className="borrow-list">

@@ -2,11 +2,11 @@ import React from "react";
 import "./CategorgyCard.css";
 
 
-function CategorgyCard({title}) {
+function CategorgyCard({title,id}) {
     return ( 
         <>
         <div className="CategoryCardWrapper">
-                <p>{title}</p>
+                <b>{id}. {title}</b>
         </div>
         </>
      );

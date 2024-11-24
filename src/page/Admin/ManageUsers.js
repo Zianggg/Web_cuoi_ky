@@ -33,6 +33,7 @@ function ManageUsers() {
         console.log("Users after add:", users);
     }
 
+    console.log(users)
 
     return ( <>
     <Modal
@@ -46,7 +47,7 @@ function ManageUsers() {
         <div className="Borrow-history-header">
             <h1>Danh sách người dùng</h1>
             <div style={{display:"flex", alignItems:"center"}}>
-                <SearchBar></SearchBar>
+                <SearchBar items={users}></SearchBar>
                 <button className="CreateButton" onClick={() => (setVisibleForm(true),
                                                                 setFormType("user"),
                                                                 setIsEdit(false)

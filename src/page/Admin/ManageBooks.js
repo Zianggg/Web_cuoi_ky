@@ -52,7 +52,7 @@ function ManageBooks() {
         <div className="Borrow-history-header">
             <h1>Kho sách</h1>
             <div style={{display:"flex", alignItems:"center", gap:'10px'}}>
-                <SearchBar></SearchBar>
+                <SearchBar items={Books}></SearchBar>
                 <button className="CreateButton"  onClick={()=> {setVisibleForm(true);
                                                                 setFormType("book")
                                                                 setIsEdit(false)
